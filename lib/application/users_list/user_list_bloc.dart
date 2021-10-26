@@ -18,4 +18,25 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
   final IJSONPlaceholderFacade _placeholderFacade;
 
   UserListBloc(this._placeholderFacade) : super(UserListState.initial());
+
+  Stream<UserListState> mapEventToState(UserListEvent event,) async* {
+    yield* event.map(
+      userListLoading: (e) async* {
+        yield state.copyWith(
+          isLoading: true,
+        );
+      },
+      userListLoaded: (e) async* {
+        yield state.userPreviewListEither.fold((l) =>
+            state.copyWith(
+              showErrorMessage: true,
+            ), (r) => state.copyWith(
+          userPreviewListEither: right(r),
+        ));
+      },
+      userChecked: (e) async* {
+        yield state.copyWith(userChecked: 0); //TODO: number
+      },
+    );
+  }
 }
