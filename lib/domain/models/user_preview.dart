@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'user.freezed.dart';
+part 'user_preview.freezed.dart';
+part 'user_preview.g.dart';
 
 @freezed
 class UserPreview with _$UserPreview {
@@ -9,4 +10,7 @@ class UserPreview with _$UserPreview {
     required String username,
     required String name,
   }) = _UserPreview;
+
+  factory UserPreview.fromJson(Map<String, dynamic> json) =>
+      _$UserPreviewFromJson(json);
 }

@@ -1,9 +1,9 @@
-import 'package:eclipce_test/domain/models/user.dart';
+import 'package:eclipce_test/domain/models/user_preview.dart';
 
 import 'json_placeholder_failure.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class IJSONPlaceholderFacade {
+abstract class IJSONPlaceholderFacade { //TODO: rename to general name
   Future<Either<JSONPlaceholderFailure, List<UserPreview>>> getUsersPreview();
 
   // Future<User> getUserById({required int id });

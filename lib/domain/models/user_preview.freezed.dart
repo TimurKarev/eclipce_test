@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'user.dart';
+part of 'user_preview.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,6 +12,10 @@ T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+UserPreview _$UserPreviewFromJson(Map<String, dynamic> json) {
+  return _UserPreview.fromJson(json);
+}
 
 /// @nodoc
 class _$UserPreviewTearOff {
@@ -25,6 +29,10 @@ class _$UserPreviewTearOff {
       name: name,
     );
   }
+
+  UserPreview fromJson(Map<String, Object?> json) {
+    return UserPreview.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -36,6 +44,7 @@ mixin _$UserPreview {
   String get username => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserPreviewCopyWith<UserPreview> get copyWith =>
       throw _privateConstructorUsedError;
@@ -124,10 +133,13 @@ class __$UserPreviewCopyWithImpl<$Res> extends _$UserPreviewCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_UserPreview implements _UserPreview {
   const _$_UserPreview(
       {required this.id, required this.username, required this.name});
+
+  factory _$_UserPreview.fromJson(Map<String, dynamic> json) =>
+      _$$_UserPreviewFromJson(json);
 
   @override
   final int id;
@@ -159,6 +171,11 @@ class _$_UserPreview implements _UserPreview {
   @override
   _$UserPreviewCopyWith<_UserPreview> get copyWith =>
       __$UserPreviewCopyWithImpl<_UserPreview>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UserPreviewToJson(this);
+  }
 }
 
 abstract class _UserPreview implements UserPreview {
@@ -166,6 +183,9 @@ abstract class _UserPreview implements UserPreview {
       {required int id,
       required String username,
       required String name}) = _$_UserPreview;
+
+  factory _UserPreview.fromJson(Map<String, dynamic> json) =
+      _$_UserPreview.fromJson;
 
   @override
   int get id;
