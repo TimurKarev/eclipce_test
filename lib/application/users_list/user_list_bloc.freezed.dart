@@ -17,16 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UserListEventTearOff {
   const _$UserListEventTearOff();
 
-  UserListLoading userListLoading() {
-    return const UserListLoading();
-  }
-
-  UserListLoaded userListLoaded() {
-    return const UserListLoaded();
-  }
-
-  UserChecked userChecked() {
-    return const UserChecked();
+  UserChecked userChecked(int userId) {
+    return UserChecked(
+      userId,
+    );
   }
 }
 
@@ -35,49 +29,43 @@ const $UserListEvent = _$UserListEventTearOff();
 
 /// @nodoc
 mixin _$UserListEvent {
+  int get userId => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() userListLoading,
-    required TResult Function() userListLoaded,
-    required TResult Function() userChecked,
+    required TResult Function(int userId) userChecked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? userListLoading,
-    TResult Function()? userListLoaded,
-    TResult Function()? userChecked,
+    TResult Function(int userId)? userChecked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? userListLoading,
-    TResult Function()? userListLoaded,
-    TResult Function()? userChecked,
+    TResult Function(int userId)? userChecked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UserListLoading value) userListLoading,
-    required TResult Function(UserListLoaded value) userListLoaded,
     required TResult Function(UserChecked value) userChecked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UserListLoading value)? userListLoading,
-    TResult Function(UserListLoaded value)? userListLoaded,
     TResult Function(UserChecked value)? userChecked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UserListLoading value)? userListLoading,
-    TResult Function(UserListLoaded value)? userListLoaded,
     TResult Function(UserChecked value)? userChecked,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UserListEventCopyWith<UserListEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -86,6 +74,7 @@ abstract class $UserListEventCopyWith<$Res> {
   factory $UserListEventCopyWith(
           UserListEvent value, $Res Function(UserListEvent) then) =
       _$UserListEventCopyWithImpl<$Res>;
+  $Res call({int userId});
 }
 
 /// @nodoc
@@ -96,235 +85,28 @@ class _$UserListEventCopyWithImpl<$Res>
   final UserListEvent _value;
   // ignore: unused_field
   final $Res Function(UserListEvent) _then;
+
+  @override
+  $Res call({
+    Object? userId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $UserListLoadingCopyWith<$Res> {
-  factory $UserListLoadingCopyWith(
-          UserListLoading value, $Res Function(UserListLoading) then) =
-      _$UserListLoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$UserListLoadingCopyWithImpl<$Res>
-    extends _$UserListEventCopyWithImpl<$Res>
-    implements $UserListLoadingCopyWith<$Res> {
-  _$UserListLoadingCopyWithImpl(
-      UserListLoading _value, $Res Function(UserListLoading) _then)
-      : super(_value, (v) => _then(v as UserListLoading));
-
-  @override
-  UserListLoading get _value => super._value as UserListLoading;
-}
-
-/// @nodoc
-
-class _$UserListLoading implements UserListLoading {
-  const _$UserListLoading();
-
-  @override
-  String toString() {
-    return 'UserListEvent.userListLoading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is UserListLoading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() userListLoading,
-    required TResult Function() userListLoaded,
-    required TResult Function() userChecked,
-  }) {
-    return userListLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? userListLoading,
-    TResult Function()? userListLoaded,
-    TResult Function()? userChecked,
-  }) {
-    return userListLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? userListLoading,
-    TResult Function()? userListLoaded,
-    TResult Function()? userChecked,
-    required TResult orElse(),
-  }) {
-    if (userListLoading != null) {
-      return userListLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UserListLoading value) userListLoading,
-    required TResult Function(UserListLoaded value) userListLoaded,
-    required TResult Function(UserChecked value) userChecked,
-  }) {
-    return userListLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UserListLoading value)? userListLoading,
-    TResult Function(UserListLoaded value)? userListLoaded,
-    TResult Function(UserChecked value)? userChecked,
-  }) {
-    return userListLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UserListLoading value)? userListLoading,
-    TResult Function(UserListLoaded value)? userListLoaded,
-    TResult Function(UserChecked value)? userChecked,
-    required TResult orElse(),
-  }) {
-    if (userListLoading != null) {
-      return userListLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UserListLoading implements UserListEvent {
-  const factory UserListLoading() = _$UserListLoading;
-}
-
-/// @nodoc
-abstract class $UserListLoadedCopyWith<$Res> {
-  factory $UserListLoadedCopyWith(
-          UserListLoaded value, $Res Function(UserListLoaded) then) =
-      _$UserListLoadedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$UserListLoadedCopyWithImpl<$Res>
-    extends _$UserListEventCopyWithImpl<$Res>
-    implements $UserListLoadedCopyWith<$Res> {
-  _$UserListLoadedCopyWithImpl(
-      UserListLoaded _value, $Res Function(UserListLoaded) _then)
-      : super(_value, (v) => _then(v as UserListLoaded));
-
-  @override
-  UserListLoaded get _value => super._value as UserListLoaded;
-}
-
-/// @nodoc
-
-class _$UserListLoaded implements UserListLoaded {
-  const _$UserListLoaded();
-
-  @override
-  String toString() {
-    return 'UserListEvent.userListLoaded()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is UserListLoaded);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() userListLoading,
-    required TResult Function() userListLoaded,
-    required TResult Function() userChecked,
-  }) {
-    return userListLoaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? userListLoading,
-    TResult Function()? userListLoaded,
-    TResult Function()? userChecked,
-  }) {
-    return userListLoaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? userListLoading,
-    TResult Function()? userListLoaded,
-    TResult Function()? userChecked,
-    required TResult orElse(),
-  }) {
-    if (userListLoaded != null) {
-      return userListLoaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UserListLoading value) userListLoading,
-    required TResult Function(UserListLoaded value) userListLoaded,
-    required TResult Function(UserChecked value) userChecked,
-  }) {
-    return userListLoaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UserListLoading value)? userListLoading,
-    TResult Function(UserListLoaded value)? userListLoaded,
-    TResult Function(UserChecked value)? userChecked,
-  }) {
-    return userListLoaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UserListLoading value)? userListLoading,
-    TResult Function(UserListLoaded value)? userListLoaded,
-    TResult Function(UserChecked value)? userChecked,
-    required TResult orElse(),
-  }) {
-    if (userListLoaded != null) {
-      return userListLoaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UserListLoaded implements UserListEvent {
-  const factory UserListLoaded() = _$UserListLoaded;
-}
-
-/// @nodoc
-abstract class $UserCheckedCopyWith<$Res> {
+abstract class $UserCheckedCopyWith<$Res>
+    implements $UserListEventCopyWith<$Res> {
   factory $UserCheckedCopyWith(
           UserChecked value, $Res Function(UserChecked) then) =
       _$UserCheckedCopyWithImpl<$Res>;
+  @override
+  $Res call({int userId});
 }
 
 /// @nodoc
@@ -336,57 +118,73 @@ class _$UserCheckedCopyWithImpl<$Res> extends _$UserListEventCopyWithImpl<$Res>
 
   @override
   UserChecked get _value => super._value as UserChecked;
+
+  @override
+  $Res call({
+    Object? userId = freezed,
+  }) {
+    return _then(UserChecked(
+      userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$UserChecked implements UserChecked {
-  const _$UserChecked();
+  const _$UserChecked(this.userId);
+
+  @override
+  final int userId;
 
   @override
   String toString() {
-    return 'UserListEvent.userChecked()';
+    return 'UserListEvent.userChecked(userId: $userId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is UserChecked);
+        (other.runtimeType == runtimeType &&
+            other is UserChecked &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  $UserCheckedCopyWith<UserChecked> get copyWith =>
+      _$UserCheckedCopyWithImpl<UserChecked>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() userListLoading,
-    required TResult Function() userListLoaded,
-    required TResult Function() userChecked,
+    required TResult Function(int userId) userChecked,
   }) {
-    return userChecked();
+    return userChecked(userId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? userListLoading,
-    TResult Function()? userListLoaded,
-    TResult Function()? userChecked,
+    TResult Function(int userId)? userChecked,
   }) {
-    return userChecked?.call();
+    return userChecked?.call(userId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? userListLoading,
-    TResult Function()? userListLoaded,
-    TResult Function()? userChecked,
+    TResult Function(int userId)? userChecked,
     required TResult orElse(),
   }) {
     if (userChecked != null) {
-      return userChecked();
+      return userChecked(userId);
     }
     return orElse();
   }
@@ -394,8 +192,6 @@ class _$UserChecked implements UserChecked {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UserListLoading value) userListLoading,
-    required TResult Function(UserListLoaded value) userListLoaded,
     required TResult Function(UserChecked value) userChecked,
   }) {
     return userChecked(this);
@@ -404,8 +200,6 @@ class _$UserChecked implements UserChecked {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UserListLoading value)? userListLoading,
-    TResult Function(UserListLoaded value)? userListLoaded,
     TResult Function(UserChecked value)? userChecked,
   }) {
     return userChecked?.call(this);
@@ -414,8 +208,6 @@ class _$UserChecked implements UserChecked {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UserListLoading value)? userListLoading,
-    TResult Function(UserListLoaded value)? userListLoaded,
     TResult Function(UserChecked value)? userChecked,
     required TResult orElse(),
   }) {
@@ -427,7 +219,14 @@ class _$UserChecked implements UserChecked {
 }
 
 abstract class UserChecked implements UserListEvent {
-  const factory UserChecked() = _$UserChecked;
+  const factory UserChecked(int userId) = _$UserChecked;
+
+  @override
+  int get userId;
+  @override
+  @JsonKey(ignore: true)
+  $UserCheckedCopyWith<UserChecked> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -438,11 +237,13 @@ class _$UserListStateTearOff {
       {required Either<JSONPlaceholderFailure, List<UserPreview>>
           userPreviewListEither,
       required bool showErrorMessage,
-      required bool isLoading}) {
+      required bool isLoading,
+      required int userChecked}) {
     return _UserListState(
       userPreviewListEither: userPreviewListEither,
       showErrorMessage: showErrorMessage,
       isLoading: isLoading,
+      userChecked: userChecked,
     );
   }
 }
@@ -456,6 +257,7 @@ mixin _$UserListState {
       throw _privateConstructorUsedError;
   bool get showErrorMessage => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  int get userChecked => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserListStateCopyWith<UserListState> get copyWith =>
@@ -470,7 +272,8 @@ abstract class $UserListStateCopyWith<$Res> {
   $Res call(
       {Either<JSONPlaceholderFailure, List<UserPreview>> userPreviewListEither,
       bool showErrorMessage,
-      bool isLoading});
+      bool isLoading,
+      int userChecked});
 }
 
 /// @nodoc
@@ -487,6 +290,7 @@ class _$UserListStateCopyWithImpl<$Res>
     Object? userPreviewListEither = freezed,
     Object? showErrorMessage = freezed,
     Object? isLoading = freezed,
+    Object? userChecked = freezed,
   }) {
     return _then(_value.copyWith(
       userPreviewListEither: userPreviewListEither == freezed
@@ -501,6 +305,10 @@ class _$UserListStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      userChecked: userChecked == freezed
+          ? _value.userChecked
+          : userChecked // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -515,7 +323,8 @@ abstract class _$UserListStateCopyWith<$Res>
   $Res call(
       {Either<JSONPlaceholderFailure, List<UserPreview>> userPreviewListEither,
       bool showErrorMessage,
-      bool isLoading});
+      bool isLoading,
+      int userChecked});
 }
 
 /// @nodoc
@@ -534,6 +343,7 @@ class __$UserListStateCopyWithImpl<$Res>
     Object? userPreviewListEither = freezed,
     Object? showErrorMessage = freezed,
     Object? isLoading = freezed,
+    Object? userChecked = freezed,
   }) {
     return _then(_UserListState(
       userPreviewListEither: userPreviewListEither == freezed
@@ -548,6 +358,10 @@ class __$UserListStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      userChecked: userChecked == freezed
+          ? _value.userChecked
+          : userChecked // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -558,7 +372,8 @@ class _$_UserListState implements _UserListState {
   const _$_UserListState(
       {required this.userPreviewListEither,
       required this.showErrorMessage,
-      required this.isLoading});
+      required this.isLoading,
+      required this.userChecked});
 
   @override
   final Either<JSONPlaceholderFailure, List<UserPreview>> userPreviewListEither;
@@ -566,10 +381,12 @@ class _$_UserListState implements _UserListState {
   final bool showErrorMessage;
   @override
   final bool isLoading;
+  @override
+  final int userChecked;
 
   @override
   String toString() {
-    return 'UserListState(userPreviewListEither: $userPreviewListEither, showErrorMessage: $showErrorMessage, isLoading: $isLoading)';
+    return 'UserListState(userPreviewListEither: $userPreviewListEither, showErrorMessage: $showErrorMessage, isLoading: $isLoading, userChecked: $userChecked)';
   }
 
   @override
@@ -582,12 +399,14 @@ class _$_UserListState implements _UserListState {
             (identical(other.showErrorMessage, showErrorMessage) ||
                 other.showErrorMessage == showErrorMessage) &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.userChecked, userChecked) ||
+                other.userChecked == userChecked));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, userPreviewListEither, showErrorMessage, isLoading);
+  int get hashCode => Object.hash(runtimeType, userPreviewListEither,
+      showErrorMessage, isLoading, userChecked);
 
   @JsonKey(ignore: true)
   @override
@@ -600,7 +419,8 @@ abstract class _UserListState implements UserListState {
       {required Either<JSONPlaceholderFailure, List<UserPreview>>
           userPreviewListEither,
       required bool showErrorMessage,
-      required bool isLoading}) = _$_UserListState;
+      required bool isLoading,
+      required int userChecked}) = _$_UserListState;
 
   @override
   Either<JSONPlaceholderFailure, List<UserPreview>> get userPreviewListEither;
@@ -608,6 +428,8 @@ abstract class _UserListState implements UserListState {
   bool get showErrorMessage;
   @override
   bool get isLoading;
+  @override
+  int get userChecked;
   @override
   @JsonKey(ignore: true)
   _$UserListStateCopyWith<_UserListState> get copyWith =>

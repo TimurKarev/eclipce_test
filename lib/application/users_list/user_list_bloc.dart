@@ -21,21 +21,8 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
 
   Stream<UserListState> mapEventToState(UserListEvent event,) async* {
     yield* event.map(
-      userListLoading: (e) async* {
-        yield state.copyWith(
-          isLoading: true,
-        );
-      },
-      userListLoaded: (e) async* {
-        yield state.userPreviewListEither.fold((l) =>
-            state.copyWith(
-              showErrorMessage: true,
-            ), (r) => state.copyWith(
-          userPreviewListEither: right(r),
-        ));
-      },
       userChecked: (e) async* {
-        yield state.copyWith(userChecked: 0); //TODO: number
+        yield state.copyWith(userChecked: e.userId);
       },
     );
   }
