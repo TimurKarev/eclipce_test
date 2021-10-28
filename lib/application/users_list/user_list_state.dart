@@ -3,15 +3,15 @@ part of 'user_list_bloc.dart';
 @freezed
 class UserListState with _$UserListState {
   const factory UserListState({
-    required Either<JSONPlaceholderFailure, List<UserPreview>>
+    List<UserPreview>?
         userPreviewListEither,
-    required bool showErrorMessage,
-    required bool isLoading,
-    required int userChecked,
+    bool? showErrorMessage,
+    bool? isLoading,
+    int? userChecked,
   }) = _UserListState;
 
   factory UserListState.initial() => UserListState(
-        userPreviewListEither: right([]),
+        userPreviewListEither: [],
         showErrorMessage: false,
         isLoading: true,
         userChecked: -1, //TODO: magic number

@@ -1,20 +1,9 @@
-import 'package:eclipce_test/test_pages/get_test.dart';
+import 'package:eclipce_test/injection.dart';
+import 'package:eclipce_test/presentation/core/app_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: GetTest(),
-    );
-  }
+void main() async {
+  await configureInjection(Environment.prod);
+  runApp(AppWidget());
 }
