@@ -17,8 +17,7 @@ import 'infrastructure/json_placeholder/json_placeholder.dart'
 _i1.GetIt $initGetIt(_i1.GetIt get,
     {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
-  gh.lazySingleton<_i3.IJSONPlaceholderFacade>(() => _i4.JSONPlaceholder());
-  gh.factory<_i5.UserListBloc>(
-      () => _i5.UserListBloc(get<_i3.IJSONPlaceholderFacade>()));
+  gh.lazySingleton<_i3.IFacade>(() => _i4.JSONPlaceholder());
+  gh.factory<_i5.UserListBloc>(() => _i5.UserListBloc(get<_i3.IFacade>()));
   return get;
 }

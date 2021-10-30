@@ -15,7 +15,7 @@ part 'user_list_bloc.freezed.dart';
 
 @injectable
 class UserListBloc extends Bloc<UserListEvent, UserListState> {
-  final IJSONPlaceholderFacade _placeholder;
+  final IFacade _placeholder;
 
   UserListBloc(this._placeholder) : super(UserListState.initial()){
     add(UserListEvent.loadList());

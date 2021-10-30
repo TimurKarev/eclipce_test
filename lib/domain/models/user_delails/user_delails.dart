@@ -12,14 +12,14 @@ part 'user_delails.g.dart';
 class UserDetails with _$UserDetails {
   const factory UserDetails({
     required String name,
-    required String userName,
+    required String username,
     required String email,
     required String phone,
     required String website,
     required Address address,
     required Company company,
-    required Album album,
-    required Post post,
+    required List<Album> albums,
+    required List<Post> posts,
   }) = _UserDetails;
 
   factory UserDetails.fromJson(Map<String, dynamic> json) =>

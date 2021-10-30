@@ -9,25 +9,29 @@ part of 'user_delails.dart';
 _$_UserDetails _$$_UserDetailsFromJson(Map<String, dynamic> json) =>
     _$_UserDetails(
       name: json['name'] as String,
-      userName: json['userName'] as String,
+      username: json['username'] as String,
       email: json['email'] as String,
       phone: json['phone'] as String,
       website: json['website'] as String,
       address: Address.fromJson(json['address'] as Map<String, dynamic>),
       company: Company.fromJson(json['company'] as Map<String, dynamic>),
-      album: Album.fromJson(json['album'] as Map<String, dynamic>),
-      post: Post.fromJson(json['post'] as Map<String, dynamic>),
+      albums: (json['albums'] as List<dynamic>)
+          .map((e) => Album.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      posts: (json['posts'] as List<dynamic>)
+          .map((e) => Post.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_UserDetailsToJson(_$_UserDetails instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'userName': instance.userName,
+      'username': instance.username,
       'email': instance.email,
       'phone': instance.phone,
       'website': instance.website,
       'address': instance.address,
       'company': instance.company,
-      'album': instance.album,
-      'post': instance.post,
+      'albums': instance.albums,
+      'posts': instance.posts,
     };

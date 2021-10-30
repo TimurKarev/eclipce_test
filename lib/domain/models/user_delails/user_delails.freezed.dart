@@ -23,24 +23,24 @@ class _$UserDetailsTearOff {
 
   _UserDetails call(
       {required String name,
-      required String userName,
+      required String username,
       required String email,
       required String phone,
       required String website,
       required Address address,
       required Company company,
-      required Album album,
-      required Post post}) {
+      required List<Album> albums,
+      required List<Post> posts}) {
     return _UserDetails(
       name: name,
-      userName: userName,
+      username: username,
       email: email,
       phone: phone,
       website: website,
       address: address,
       company: company,
-      album: album,
-      post: post,
+      albums: albums,
+      posts: posts,
     );
   }
 
@@ -55,14 +55,14 @@ const $UserDetails = _$UserDetailsTearOff();
 /// @nodoc
 mixin _$UserDetails {
   String get name => throw _privateConstructorUsedError;
-  String get userName => throw _privateConstructorUsedError;
+  String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String get website => throw _privateConstructorUsedError;
   Address get address => throw _privateConstructorUsedError;
   Company get company => throw _privateConstructorUsedError;
-  Album get album => throw _privateConstructorUsedError;
-  Post get post => throw _privateConstructorUsedError;
+  List<Album> get albums => throw _privateConstructorUsedError;
+  List<Post> get posts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -77,19 +77,17 @@ abstract class $UserDetailsCopyWith<$Res> {
       _$UserDetailsCopyWithImpl<$Res>;
   $Res call(
       {String name,
-      String userName,
+      String username,
       String email,
       String phone,
       String website,
       Address address,
       Company company,
-      Album album,
-      Post post});
+      List<Album> albums,
+      List<Post> posts});
 
   $AddressCopyWith<$Res> get address;
   $CompanyCopyWith<$Res> get company;
-  $AlbumCopyWith<$Res> get album;
-  $PostCopyWith<$Res> get post;
 }
 
 /// @nodoc
@@ -103,23 +101,23 @@ class _$UserDetailsCopyWithImpl<$Res> implements $UserDetailsCopyWith<$Res> {
   @override
   $Res call({
     Object? name = freezed,
-    Object? userName = freezed,
+    Object? username = freezed,
     Object? email = freezed,
     Object? phone = freezed,
     Object? website = freezed,
     Object? address = freezed,
     Object? company = freezed,
-    Object? album = freezed,
-    Object? post = freezed,
+    Object? albums = freezed,
+    Object? posts = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      userName: userName == freezed
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
       email: email == freezed
           ? _value.email
@@ -141,14 +139,14 @@ class _$UserDetailsCopyWithImpl<$Res> implements $UserDetailsCopyWith<$Res> {
           ? _value.company
           : company // ignore: cast_nullable_to_non_nullable
               as Company,
-      album: album == freezed
-          ? _value.album
-          : album // ignore: cast_nullable_to_non_nullable
-              as Album,
-      post: post == freezed
-          ? _value.post
-          : post // ignore: cast_nullable_to_non_nullable
-              as Post,
+      albums: albums == freezed
+          ? _value.albums
+          : albums // ignore: cast_nullable_to_non_nullable
+              as List<Album>,
+      posts: posts == freezed
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
     ));
   }
 
@@ -165,20 +163,6 @@ class _$UserDetailsCopyWithImpl<$Res> implements $UserDetailsCopyWith<$Res> {
       return _then(_value.copyWith(company: value));
     });
   }
-
-  @override
-  $AlbumCopyWith<$Res> get album {
-    return $AlbumCopyWith<$Res>(_value.album, (value) {
-      return _then(_value.copyWith(album: value));
-    });
-  }
-
-  @override
-  $PostCopyWith<$Res> get post {
-    return $PostCopyWith<$Res>(_value.post, (value) {
-      return _then(_value.copyWith(post: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -190,23 +174,19 @@ abstract class _$UserDetailsCopyWith<$Res>
   @override
   $Res call(
       {String name,
-      String userName,
+      String username,
       String email,
       String phone,
       String website,
       Address address,
       Company company,
-      Album album,
-      Post post});
+      List<Album> albums,
+      List<Post> posts});
 
   @override
   $AddressCopyWith<$Res> get address;
   @override
   $CompanyCopyWith<$Res> get company;
-  @override
-  $AlbumCopyWith<$Res> get album;
-  @override
-  $PostCopyWith<$Res> get post;
 }
 
 /// @nodoc
@@ -222,23 +202,23 @@ class __$UserDetailsCopyWithImpl<$Res> extends _$UserDetailsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = freezed,
-    Object? userName = freezed,
+    Object? username = freezed,
     Object? email = freezed,
     Object? phone = freezed,
     Object? website = freezed,
     Object? address = freezed,
     Object? company = freezed,
-    Object? album = freezed,
-    Object? post = freezed,
+    Object? albums = freezed,
+    Object? posts = freezed,
   }) {
     return _then(_UserDetails(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      userName: userName == freezed
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
       email: email == freezed
           ? _value.email
@@ -260,14 +240,14 @@ class __$UserDetailsCopyWithImpl<$Res> extends _$UserDetailsCopyWithImpl<$Res>
           ? _value.company
           : company // ignore: cast_nullable_to_non_nullable
               as Company,
-      album: album == freezed
-          ? _value.album
-          : album // ignore: cast_nullable_to_non_nullable
-              as Album,
-      post: post == freezed
-          ? _value.post
-          : post // ignore: cast_nullable_to_non_nullable
-              as Post,
+      albums: albums == freezed
+          ? _value.albums
+          : albums // ignore: cast_nullable_to_non_nullable
+              as List<Album>,
+      posts: posts == freezed
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
     ));
   }
 }
@@ -277,14 +257,14 @@ class __$UserDetailsCopyWithImpl<$Res> extends _$UserDetailsCopyWithImpl<$Res>
 class _$_UserDetails implements _UserDetails {
   const _$_UserDetails(
       {required this.name,
-      required this.userName,
+      required this.username,
       required this.email,
       required this.phone,
       required this.website,
       required this.address,
       required this.company,
-      required this.album,
-      required this.post});
+      required this.albums,
+      required this.posts});
 
   factory _$_UserDetails.fromJson(Map<String, dynamic> json) =>
       _$$_UserDetailsFromJson(json);
@@ -292,7 +272,7 @@ class _$_UserDetails implements _UserDetails {
   @override
   final String name;
   @override
-  final String userName;
+  final String username;
   @override
   final String email;
   @override
@@ -304,13 +284,13 @@ class _$_UserDetails implements _UserDetails {
   @override
   final Company company;
   @override
-  final Album album;
+  final List<Album> albums;
   @override
-  final Post post;
+  final List<Post> posts;
 
   @override
   String toString() {
-    return 'UserDetails(name: $name, userName: $userName, email: $email, phone: $phone, website: $website, address: $address, company: $company, album: $album, post: $post)';
+    return 'UserDetails(name: $name, username: $username, email: $email, phone: $phone, website: $website, address: $address, company: $company, albums: $albums, posts: $posts)';
   }
 
   @override
@@ -319,20 +299,29 @@ class _$_UserDetails implements _UserDetails {
         (other.runtimeType == runtimeType &&
             other is _UserDetails &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.userName, userName) ||
-                other.userName == userName) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.website, website) || other.website == website) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.company, company) || other.company == company) &&
-            (identical(other.album, album) || other.album == album) &&
-            (identical(other.post, post) || other.post == post));
+            const DeepCollectionEquality().equals(other.albums, albums) &&
+            const DeepCollectionEquality().equals(other.posts, posts));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, userName, email, phone,
-      website, address, company, album, post);
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      username,
+      email,
+      phone,
+      website,
+      address,
+      company,
+      const DeepCollectionEquality().hash(albums),
+      const DeepCollectionEquality().hash(posts));
 
   @JsonKey(ignore: true)
   @override
@@ -348,14 +337,14 @@ class _$_UserDetails implements _UserDetails {
 abstract class _UserDetails implements UserDetails {
   const factory _UserDetails(
       {required String name,
-      required String userName,
+      required String username,
       required String email,
       required String phone,
       required String website,
       required Address address,
       required Company company,
-      required Album album,
-      required Post post}) = _$_UserDetails;
+      required List<Album> albums,
+      required List<Post> posts}) = _$_UserDetails;
 
   factory _UserDetails.fromJson(Map<String, dynamic> json) =
       _$_UserDetails.fromJson;
@@ -363,7 +352,7 @@ abstract class _UserDetails implements UserDetails {
   @override
   String get name;
   @override
-  String get userName;
+  String get username;
   @override
   String get email;
   @override
@@ -375,9 +364,9 @@ abstract class _UserDetails implements UserDetails {
   @override
   Company get company;
   @override
-  Album get album;
+  List<Album> get albums;
   @override
-  Post get post;
+  List<Post> get posts;
   @override
   @JsonKey(ignore: true)
   _$UserDetailsCopyWith<_UserDetails> get copyWith =>
