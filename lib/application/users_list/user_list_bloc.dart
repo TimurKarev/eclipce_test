@@ -1,10 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
-import 'package:eclipce_test/domain/json_placeholder/json_placeholder_failure.dart';
 import 'package:eclipce_test/domain/json_placeholder/i_json_placeholder_facade.dart';
-import 'package:eclipce_test/domain/models/user_preview.dart';
+import 'package:eclipce_test/domain/models/user_preview/user_preview.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
@@ -17,25 +15,22 @@ part 'user_list_bloc.freezed.dart';
 
 @injectable
 class UserListBloc extends Bloc<UserListEvent, UserListState> {
-  final IJSONPlaceholderFacade _placeholderFacade;
+  final IJSONPlaceholderFacade _placeholder;
 
-  UserListBloc(this._placeholderFacade) : super(UserListState.initial());
+  UserListBloc(this._placeholder) : super(UserListState.initial()){
+    add(UserListEvent.loadList());
+  }
 
   Stream<UserListState> mapEventToState(
     UserListEvent event,
   ) async* {
     yield* event.map(
-      userChecked: (e) async* {
-        yield state.copyWith(userChecked: e.userId);
-      },
-      loadList: (e) async* {
-        final userList = await _placeholderFacade.getUsersPreview();
-        yield state.copyWith(isLoading: true);
-        yield state.copyWith(
-          userPreviewListEither: userList.fold((l) => [], (r) => r),
-          isLoading: false,
-        );
-      }
-    );
+        loadList: (e) async* {
+          final userPreviewVariants = await _placeholder.getUsersPreview();
+          yield userPreviewVariants.fold(
+            (l) => UserListState.loadError(l.toString()),
+            (r) => UserListState.usersLoaded(r),
+          );
+        });
   }
 }

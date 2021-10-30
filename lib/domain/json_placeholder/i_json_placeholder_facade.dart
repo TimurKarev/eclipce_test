@@ -1,4 +1,4 @@
-import 'package:eclipce_test/domain/models/user_preview.dart';
+import 'package:eclipce_test/domain/models/user_preview/user_preview.dart';
 
 import 'json_placeholder_failure.dart';
 import 'package:dartz/dartz.dart';

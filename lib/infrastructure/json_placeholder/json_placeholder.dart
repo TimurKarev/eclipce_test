@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:eclipce_test/domain/json_placeholder/i_json_placeholder_facade.dart';
 import 'package:eclipce_test/domain/json_placeholder/json_placeholder_failure.dart';
-import 'package:eclipce_test/domain/models/user_preview.dart';
+import 'package:eclipce_test/domain/models/user_preview/user_preview.dart';
 import 'package:injectable/injectable.dart';
 
 

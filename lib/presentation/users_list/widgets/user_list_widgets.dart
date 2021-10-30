@@ -10,24 +10,32 @@ class UserListWidget extends StatelessWidget {
     return BlocConsumer<UserListBloc, UserListState>(
       listener: (context, state) {},
       builder: (context, state) {
-        if (state.isLoading != true) {
-          return ListView.builder(
-            itemCount: state.userPreviewListEither!.length,
-            itemBuilder: (context, index) => Card(
-              child: ListTile(
-                title: Text(state.userPreviewListEither![index].username),
-                subtitle: Text(state.userPreviewListEither![index].name),
-                onTap: () {
-                  print(index);
-                },
-              ),
-            ),
-          );
-        } else {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-      }
+        return state.map(
+          initial: (_) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+          usersLoaded: (state) {
+            final userPreviews = state.userPreviews;
+            return ListView.builder(
+              itemCount: userPreviews.length,
+              itemBuilder: (context, index) =>
+                  Card(
+                    child: ListTile(
+                      title: Text(userPreviews[index].username),
+                      subtitle: Text(userPreviews[index].name),
+                      onTap: () {
+                        print(index);
+                      },
+                    ),
+                  ),
+            );
+          },
+          loadError: (state){
+            return Center(child: Text("${state.errorString}"));
+          },
+        );
       },
     );
   }
