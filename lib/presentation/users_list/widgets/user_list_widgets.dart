@@ -1,4 +1,6 @@
 import 'package:eclipce_test/application/users_list/user_list_bloc.dart';
+import 'package:eclipce_test/presentation/user_details/user_details_page.dart';
+import 'package:eclipce_test/presentation/users_list/arguments_models/user_details_arguments.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +28,14 @@ class UserListWidget extends StatelessWidget {
                       title: Text(userPreviews[index].username),
                       subtitle: Text(userPreviews[index].name),
                       onTap: () {
-                        print(index);
+                        Navigator.pushNamed(
+                          context,
+                          UserDetailsPage.routeName,
+                          arguments: UserDetailsArguments(
+                            username: userPreviews[index].name,
+                            id: userPreviews[index].id,
+                          ),
+                        );
                       },
                     ),
                   ),

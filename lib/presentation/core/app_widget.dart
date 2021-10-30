@@ -1,3 +1,4 @@
+import 'package:eclipce_test/presentation/user_details/user_details_page.dart';
 import 'package:eclipce_test/presentation/users_list/users_list_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,9 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      routes: {
+        UserDetailsPage.routeName: (context) => UserDetailsPage(),
+      },
       home: UserListPage(),
     );
   }
