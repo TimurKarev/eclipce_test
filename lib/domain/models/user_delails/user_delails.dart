@@ -1,5 +1,5 @@
 import 'package:eclipce_test/domain/models/address/address.dart';
-import 'package:eclipce_test/domain/models/album.dart';
+import 'package:eclipce_test/domain/models/album/album.dart';
 import 'package:eclipce_test/domain/models/company/company.dart';
 import 'package:eclipce_test/domain/models/post/post.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

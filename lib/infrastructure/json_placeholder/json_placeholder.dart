@@ -1,12 +1,12 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:eclipce_test/domain/json_placeholder/i_json_placeholder_facade.dart';
 import 'package:eclipce_test/domain/json_placeholder/json_placeholder_failure.dart';
-import 'package:eclipce_test/domain/models/album.dart';
-import 'package:eclipce_test/domain/models/post/post.dart';
 import 'package:eclipce_test/domain/models/user_delails/user_delails.dart';
 import 'package:eclipce_test/domain/models/user_preview/user_preview.dart';
 import 'package:injectable/injectable.dart';
+import 'package:http/http.dart' as http;
 
 //@lazySingleton
 @LazySingleton(as: IFacade)
@@ -15,10 +15,10 @@ class JSONPlaceholder implements IFacade {
   Future<Either<JSONPlaceholderFailure, List<UserPreview>>>
       getUsersPreview() async {
     try {
-      Response response =
-          await Dio().get("https://jsonplaceholder.typicode.com/users/");
+      final response = await http
+          .get(Uri.parse("https://jsonplaceholder.typicode.com/users/"));
       if (response.statusCode == 200) {
-        var getUsersData = response.data as List;
+        var getUsersData = jsonDecode(response.body) as List;
         var listUsers =
             getUsersData.map((i) => UserPreview.fromJson(i)).toList();
         return right(listUsers);
@@ -35,15 +35,27 @@ class JSONPlaceholder implements IFacade {
   @override
   Future<Either<JSONPlaceholderFailure, UserDetails>> getUserById(
       {required int id}) async {
-    final dio = Dio();
     List<dynamic> listAlbums = [];
     List<dynamic> listPosts = [];
     try {
-      Response response = await dio
-          .get("https://jsonplaceholder.typicode.com/users/$id/albums/");
+      final response = await http.get(
+          Uri.parse("https://jsonplaceholder.typicode.com/users/$id/albums/"));
       if (response.statusCode == 200) {
-        final getUsersData = response.data as List;
-        listAlbums = getUsersData.sublist(1, 3);
+        final getUsersData = jsonDecode(response.body) as List;
+        listAlbums = getUsersData.sublist(0, 3);
+        for (var album in listAlbums) {
+          try {
+            final albumId = album['id'];
+            final response = await http.get(Uri.parse(
+                "https://jsonplaceholder.typicode.com/albums/$albumId/photos/"));
+            if (response.statusCode == 200) {
+              final getUsersData = jsonDecode(response.body) as List;
+              album['photos'] = getUsersData.sublist(0, 3);
+            }
+          } catch (e) {
+            return left(JSONPlaceholderFailure.serverError());
+          }
+        }
       } else {
         return left(JSONPlaceholderFailure.serverError());
       }
@@ -51,25 +63,22 @@ class JSONPlaceholder implements IFacade {
       return left(JSONPlaceholderFailure.serverError());
     }
     try {
-      Response response = await dio
-          .get("https://jsonplaceholder.typicode.com/users/$id/posts/");
+      final response = await http.get(
+          Uri.parse("https://jsonplaceholder.typicode.com/users/$id/posts/"));
       if (response.statusCode == 200) {
-        final getUsersData = response.data as List;
-        listPosts = getUsersData.sublist(1, 3);
-
+        final getUsersData = jsonDecode(response.body) as List;
+        listPosts = getUsersData.sublist(0, 3);
       } else {
-        print("e.toString()");
         return left(JSONPlaceholderFailure.serverError());
       }
     } catch (e) {
-      print(e.toString());
       return left(JSONPlaceholderFailure.serverError());
     }
     try {
-      Response response = await dio
-          .get("https://jsonplaceholder.typicode.com/users/$id");
+      final response = await http
+          .get(Uri.parse("https://jsonplaceholder.typicode.com/users/$id"));
       if (response.statusCode == 200) {
-        final data = response.data as Map<String, dynamic>;
+        final data = jsonDecode(response.body) as Map<String, dynamic>;
         data['albums'] = listAlbums;
         data['posts'] = listPosts;
         final userDetails = UserDetails.fromJson(data);

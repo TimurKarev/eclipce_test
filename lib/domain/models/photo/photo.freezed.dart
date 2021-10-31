@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'album.dart';
+part of 'photo.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,13 +13,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Album _$AlbumFromJson(Map<String, dynamic> json) {
+Photo _$PhotoFromJson(Map<String, dynamic> json) {
   return _Album.fromJson(json);
 }
 
 /// @nodoc
-class _$AlbumTearOff {
-  const _$AlbumTearOff();
+class _$PhotoTearOff {
+  const _$PhotoTearOff();
 
   _Album call(
       {required String title,
@@ -32,39 +32,39 @@ class _$AlbumTearOff {
     );
   }
 
-  Album fromJson(Map<String, Object?> json) {
-    return Album.fromJson(json);
+  Photo fromJson(Map<String, Object?> json) {
+    return Photo.fromJson(json);
   }
 }
 
 /// @nodoc
-const $Album = _$AlbumTearOff();
+const $Photo = _$PhotoTearOff();
 
 /// @nodoc
-mixin _$Album {
+mixin _$Photo {
   String get title => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get thumbnailUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AlbumCopyWith<Album> get copyWith => throw _privateConstructorUsedError;
+  $PhotoCopyWith<Photo> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AlbumCopyWith<$Res> {
-  factory $AlbumCopyWith(Album value, $Res Function(Album) then) =
-      _$AlbumCopyWithImpl<$Res>;
+abstract class $PhotoCopyWith<$Res> {
+  factory $PhotoCopyWith(Photo value, $Res Function(Photo) then) =
+      _$PhotoCopyWithImpl<$Res>;
   $Res call({String title, String url, String thumbnailUrl});
 }
 
 /// @nodoc
-class _$AlbumCopyWithImpl<$Res> implements $AlbumCopyWith<$Res> {
-  _$AlbumCopyWithImpl(this._value, this._then);
+class _$PhotoCopyWithImpl<$Res> implements $PhotoCopyWith<$Res> {
+  _$PhotoCopyWithImpl(this._value, this._then);
 
-  final Album _value;
+  final Photo _value;
   // ignore: unused_field
-  final $Res Function(Album) _then;
+  final $Res Function(Photo) _then;
 
   @override
   $Res call({
@@ -90,7 +90,7 @@ class _$AlbumCopyWithImpl<$Res> implements $AlbumCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AlbumCopyWith<$Res> implements $AlbumCopyWith<$Res> {
+abstract class _$AlbumCopyWith<$Res> implements $PhotoCopyWith<$Res> {
   factory _$AlbumCopyWith(_Album value, $Res Function(_Album) then) =
       __$AlbumCopyWithImpl<$Res>;
   @override
@@ -98,7 +98,7 @@ abstract class _$AlbumCopyWith<$Res> implements $AlbumCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$AlbumCopyWithImpl<$Res> extends _$AlbumCopyWithImpl<$Res>
+class __$AlbumCopyWithImpl<$Res> extends _$PhotoCopyWithImpl<$Res>
     implements _$AlbumCopyWith<$Res> {
   __$AlbumCopyWithImpl(_Album _value, $Res Function(_Album) _then)
       : super(_value, (v) => _then(v as _Album));
@@ -147,7 +147,7 @@ class _$_Album implements _Album {
 
   @override
   String toString() {
-    return 'Album(title: $title, url: $url, thumbnailUrl: $thumbnailUrl)';
+    return 'Photo(title: $title, url: $url, thumbnailUrl: $thumbnailUrl)';
   }
 
   @override
@@ -175,7 +175,7 @@ class _$_Album implements _Album {
   }
 }
 
-abstract class _Album implements Album {
+abstract class _Album implements Photo {
   const factory _Album(
       {required String title,
       required String url,

@@ -1,3 +1,4 @@
+import 'package:eclipce_test/domain/models/photo/photo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'album.freezed.dart';
@@ -6,9 +7,9 @@ part 'album.g.dart';
 @freezed
 class Album with _$Album {
   const factory Album({
+    required int userId ,
     required String title,
-    required String url,
-    required String thumbnailUrl,
+    required List<Photo> photos,
   }) = _Album;
 
   factory Album.fromJson(Map<String, dynamic> json) =>

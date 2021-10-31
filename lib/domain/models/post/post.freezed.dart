@@ -21,11 +21,9 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 class _$PostTearOff {
   const _$PostTearOff();
 
-  _Post call(
-      {required String name, required String email, required String body}) {
+  _Post call({required String title, required String body}) {
     return _Post(
-      name: name,
-      email: email,
+      title: title,
       body: body,
     );
   }
@@ -40,8 +38,7 @@ const $Post = _$PostTearOff();
 
 /// @nodoc
 mixin _$Post {
-  String get name => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,7 +50,7 @@ mixin _$Post {
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-  $Res call({String name, String email, String body});
+  $Res call({String title, String body});
 }
 
 /// @nodoc
@@ -66,18 +63,13 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? email = freezed,
+    Object? title = freezed,
     Object? body = freezed,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       body: body == freezed
           ? _value.body
@@ -92,7 +84,7 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$PostCopyWith(_Post value, $Res Function(_Post) then) =
       __$PostCopyWithImpl<$Res>;
   @override
-  $Res call({String name, String email, String body});
+  $Res call({String title, String body});
 }
 
 /// @nodoc
@@ -106,18 +98,13 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? email = freezed,
+    Object? title = freezed,
     Object? body = freezed,
   }) {
     return _then(_Post(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       body: body == freezed
           ? _value.body
@@ -130,20 +117,18 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Post implements _Post {
-  const _$_Post({required this.name, required this.email, required this.body});
+  const _$_Post({required this.title, required this.body});
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
   @override
-  final String name;
-  @override
-  final String email;
+  final String title;
   @override
   final String body;
 
   @override
   String toString() {
-    return 'Post(name: $name, email: $email, body: $body)';
+    return 'Post(title: $title, body: $body)';
   }
 
   @override
@@ -151,13 +136,12 @@ class _$_Post implements _Post {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Post &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.email, email) || other.email == email) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.body, body) || other.body == body));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, email, body);
+  int get hashCode => Object.hash(runtimeType, title, body);
 
   @JsonKey(ignore: true)
   @override
@@ -171,17 +155,12 @@ class _$_Post implements _Post {
 }
 
 abstract class _Post implements Post {
-  const factory _Post(
-      {required String name,
-      required String email,
-      required String body}) = _$_Post;
+  const factory _Post({required String title, required String body}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
   @override
-  String get name;
-  @override
-  String get email;
+  String get title;
   @override
   String get body;
   @override

@@ -1,6 +1,11 @@
+import 'package:eclipce_test/application/user_detail/user_detail_bloc.dart';
 import 'package:eclipce_test/infrastructure/json_placeholder/json_placeholder.dart';
+import 'package:eclipce_test/presentation/user_details/widgets/user_detail_widget.dart';
 import 'package:eclipce_test/presentation/users_list/arguments_models/user_details_arguments.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../injection.dart';
 
 class UserDetailsPage extends StatelessWidget {
   const UserDetailsPage({Key? key}) : super(key: key);
@@ -15,14 +20,10 @@ class UserDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("${args.username}"),
       ),
-      body: Center(
-          child: TextButton(
-        onPressed: () async {
-          final ret = await JSONPlaceholder().getUserById(id: args.id);
-                    print(ret.toString());
-        },
-        child: Text("Push Me"),
-      )),
+      body: BlocProvider(
+        create: (BuildContext context) => getIt<UserDetailBloc>()..add(UserDetailEvent.loadData(args.id)),
+        child: UserDetailWidget(),
+      ),
     );
   }
 }
