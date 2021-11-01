@@ -32,7 +32,7 @@ class UserListWidget extends StatelessWidget {
                           context,
                           UserDetailsPage.routeName,
                           arguments: UserDetailsArguments(
-                            username: userPreviews[index].name,
+                            username: userPreviews[index].username,
                             id: userPreviews[index].id,
                           ),
                         );

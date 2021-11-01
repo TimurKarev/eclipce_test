@@ -1,4 +1,8 @@
 import 'package:eclipce_test/application/user_detail/user_detail_bloc.dart';
+import 'package:eclipce_test/domain/models/user_delails/user_delails.dart';
+import 'package:eclipce_test/presentation/user_details/widgets/addres_widget.dart';
+import 'package:eclipce_test/presentation/user_details/widgets/personal_data_widget.dart';
+import 'package:eclipce_test/presentation/user_details/widgets/working_company_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,75 +40,16 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      width: double.infinity,
-                      child: Card(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Personal Data",
-                            ),
-                            SizedBox(
-                              height: 15.0,
-                            ),
-                            Text(user.username),
-                            Text(user.email),
-                            Text(user.phone),
-                            Text(user.website),
-                          ],
-                        ),
-                      ),
+                    PersonalDataWidget(
+                      website: user.website,
+                      name: user.name,
+                      phone: user.phone,
+                      email: user.email,
                     ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: Card(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Working Company",
-                            ),
-                            SizedBox(
-                              height: 15.0,
-                            ),
-                            Text(user.company.name),
-                            Text(user.company.bs),
-                            Text(user.company.catchPhrase),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: Card(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Address",
-                            ),
-                            SizedBox(
-                              height: 15.0,
-                            ),
-                            Text(user.address.zipcode),
-                            Text(user.address.city),
-                            Text(user.address.street),
-                            Text(user.address.suite),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
+                    AddressWidget(address: user.address),
+                    WorkingCompanyWidget(company: user.company),
                     SizedBox(
                       width: double.infinity,
                       child: Card(
@@ -162,9 +107,13 @@ class _UserDetailWidgetState extends State<UserDetailWidget> {
                                   title: Text(user.albums[index].title),
                                   subtitle: Row(
                                     children: [
-                                      Image.network(user.albums[index].photos[0].thumbnailUrl),
-                                      SizedBox(width: 5.0,),
-                                      Image.network(user.albums[index].photos[1].thumbnailUrl),
+                                      Image.network(user.albums[index].photos[0]
+                                          .thumbnailUrl),
+                                      SizedBox(
+                                        width: 5.0,
+                                      ),
+                                      Image.network(user.albums[index].photos[1]
+                                          .thumbnailUrl),
                                     ],
                                   ),
                                 ),
